@@ -18,6 +18,8 @@ const salt = process.env.SALT;
 app.use(bodyParser.json());
 
 app.post("/hash", (req, res) => {
+  console.log("req.body", req.body);
+  console.log("salt", salt);
   const { password } = req.body;
   console.log("password", password);
   const hashedPassword = bcrypt.hashSync(password, salt);
